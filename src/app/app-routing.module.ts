@@ -1,11 +1,22 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { SignInComponent } from "./auth/sign-in/sign-in.component";
+import { BaseLayoutComponent } from "./shared/layouts/base-layout/base-layout.component";
 
 const routes: Routes = [
   {
     path: "",
-    loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule),
+    component: BaseLayoutComponent,
+    children: [
+      {
+        path: "auth",
+        loadChildren: () =>
+          import("./auth/auth.module").then((m) => m.AuthModule),
+      },
+    ],
+  },
+  {
+    path: "**",
+    redirectTo: "auth",
   },
 ];
 

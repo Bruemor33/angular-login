@@ -16,32 +16,12 @@ import {
   MatProgressSpinnerModule,
 } from "@angular/material";
 import { RouterModule } from "@angular/router";
+import { BaseLayoutComponent } from "./shared/layouts/base-layout/base-layout.component";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    RouterModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-    MatListModule,
-  ],
-  exports: [
-    ReactiveFormsModule,
-    RouterModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-  ],
+  declarations: [AppComponent, BaseLayoutComponent],
+  imports: [AppRoutingModule, BrowserAnimationsModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
