@@ -1,55 +1,55 @@
 <div class="container">
   <div class="sign-in-container card">
-    <div class="logo">
-      <img alt="Some logo" />
-    </div>
-    <form
-      [formGroup]="signInForm"
-      (ngSubmit)="signIn()"
-      class="card-content-container"
-    >
-      <mat-form-field>
-        <mat-icon matPrefix>mail_outline</mat-icon>
-        <mat-label>Username/Email</mat-label>
-        <input
-          matInput
-          id="email"
-          placeholder="Username/Email"
-          formControlName="email"
-          maxlength="254"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-icon matPrefix fontSet="material-icons-outlined">vpn_key</mat-icon>
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          id="password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          formControlName="password"
-          maxlength="99"
-        />
-      </mat-form-field>
-      <div clcass="sign-in-button">
-        <div class="text-center">
-          <button color="accent" mat-flat-button [disabled]="loading">
-            <span *ngIf="loading; else notLoading">
-              <mat-spinner [diameter]="36"></mat-spinner>
-            </span>
-            <<ng-template #notLoading> Sign In </ng-template>
-          </button>
+    <mat-card>
+      <h1>Welcome!</h1>
+      <form
+        [formGroup]="signInForm"
+        (ngSubmit)="signIn()"
+        class="card-content-container"
+      >
+        <mat-form-field>
+          <mat-icon matPrefix>mail_outline</mat-icon>
+          <mat-label>Username/Email</mat-label>
+          <input
+            matInput
+            id="email"
+            placeholder="Username/Email"
+            formControlName="email"
+            maxlength="254"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matPrefix>vpn_key</mat-icon>
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            formControlName="password"
+            maxlength="99"
+          />
+        </mat-form-field>
+        <div clcass="sign-in-button">
+          <div class="text-center">
+            <button color="accent" mat-flat-button [disabled]="loading">
+              <span *ngIf="loading; else notLoading">
+                <mat-spinner [diameter]="36"></mat-spinner>
+              </span>
+              <<ng-template #notLoading> Sign In </ng-template>
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="secondary-actions">
+        <div class="forgot-password">
+          <a [routerLink]="['/sign-in-help']">Forgot Password?</a>
+        </div>
+        <div class="register">
+          <a [routerLink]="['/register']">Register as a new user!</a>
         </div>
       </div>
-    </form>
-    <div class="secondary-actions">
-      <div class="forgot-password">
-        <a [routerLink]="['/sign-in-help']">Forgot Password?</a>
-      </div>
-      <div class="register">
-        <a [routerLink]="['/register']">Register as a new user!</a>
-      </div>
-    </div>
+    </mat-card>
   </div>
 </div>
