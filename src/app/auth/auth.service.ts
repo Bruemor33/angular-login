@@ -22,29 +22,21 @@ export class AuthService {
   /**
    * Api methods here. Using dummy data for now
    */
-  signIn(
-    email: string,
-    password: string
-  ): Observable<ApplicationContract<Auth>> {
+  public signIn(email: string, password: string) {
     const body = { email, password };
-    // Api url will go here
-    // const url = `${}/authenticateUser`;
 
-    // Make api call
-    // return this.http
-    //          .post<ApplicationContract<Auth>>(url, body)
-    //          .pipe(catchError(this.sharedService.handleErrorAndBail('signIn')))
-
-    const dummyUser: Auth = {
-      email: "test@email.com",
-      password: "Qwerty!1234",
+    const dummyUser = {
+      email: "test",
+      password: "123",
     };
 
-    if (body === dummyUser) {
+    if (body != dummyUser) {
       // do something
-      return;
+      const result = console.log(body);
+      return result;
     } else {
       // error out
+      return console.log(dummyUser, body, "failed");
     }
   }
 }

@@ -62,12 +62,8 @@ export class SignInComponent implements OnInit {
 
       this.loading = true;
 
-      this.authService
-        .signIn(formValues.email, formValues.password)
-        .pipe(takeUntil(this.authService.clearSubOnRoute$))
-        .subscribe((res: ApplicationContract<Auth>) => {
-          this.validateSignIn(res);
-        });
+      this.authService.signIn(formValues.email, formValues.password);
+      this.loading = false;
     } else {
       // create alert service and pass through error to set
     }
